@@ -19,8 +19,11 @@ gunzip('example.json.gz', 'example.json');
 Additionally, you can pass a callback that will be executed when the extraction has completed.
 
 ``` js
-gunzip('example.json.gz', 'example.json', function() {
-	console.log('This is called when the extraction is completed.');
+gunzip('example.json.gz', 'example.json', function(isSuccess, errorMsg) {
+	if(errorMsg) { console.error(errorMsg); }
+	else {
+		console.log('This is called when the extraction is completed.');
+	}
 });
 ```
 
